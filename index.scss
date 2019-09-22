@@ -1,0 +1,177 @@
+* {
+  box-sizing: border-box;
+}
+
+$mainFont: 'Open Sans', sans-serif;
+$subFont: 'Proza Libre', sans-serif;
+
+body {
+  background: url('https://i.imgur.com/2gfwG.png');
+}
+
+/* --------------------- */
+/*      CONTAINER        */
+/* --------------------- */
+.container {
+  max-width: 600px;
+  width: 100%;
+  margin: 0 auto;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: #f9f9f9;
+}
+
+/* --------------------- */
+/*      COLORS           */
+/* --------------------- */
+$pageColors: (
+  primary: #ee6e73,
+  white: #fff,
+  grey: #f9f9f9,
+  darker-grey: #b7b7b7,
+  black: #252525
+);
+
+@each $pageColor, $prop in $pageColors {
+  .color-#{$pageColor} {
+    color: $prop;
+  }
+
+  .bg-#{$pageColor} {
+    background: $prop;
+  }
+}
+
+/* --------------------- */
+/*      WEIGHTS          */
+/* --------------------- */
+$weights: (
+  regular: 400,
+  bold: 600
+);
+
+@each $weight, $prop in $weights {
+  .h-#{$weight} {
+    font-weight: $prop;
+    font-family: $mainFont;
+  }
+
+  .t-#{$weight} {
+    font-weight: $prop;
+    font-family: $subFont;
+  }
+}
+
+.t-capitalize {
+  text-transform: capitalize;
+}
+
+/* --------------------- */
+/*      SPACING          */
+/* --------------------- */
+$spacing: (
+  0: 0rem,
+  1: 0.25rem,
+  2: 0.5rem,
+  3: 1rem,
+  4: 1.5rem,
+  5: 3rem
+);
+
+@each $spacer, $prop in $spacing {
+  .m-#{$spacer} {
+    margin: $prop;
+  }
+  .mt-#{$spacer} {
+    margin-top: $prop;
+  }
+  .ml-#{$spacer} {
+    margin-left: $prop;
+  }
+  .mr-#{$spacer} {
+    margin-right: $prop;
+  }
+  .mb-#{$spacer} {
+    margin-bottom: $prop;
+  }
+
+  .p-#{$spacer} {
+    padding: $prop;
+  }
+  .pt-#{$spacer} {
+    padding-top: $prop;
+  }
+  .pl-#{$spacer} {
+    padding-left: $prop;
+  }
+  .pr-#{$spacer} {
+    padding-right: $prop;
+  }
+  .pb-#{$spacer} {
+    padding-bottom: $prop;
+  }
+}
+
+/* --------------------- */
+/*    BORDER RADIUS      */
+/* --------------------- */
+.b-radius {
+  border-radius: 0.6rem;
+}
+
+/* --------------------- */
+/*    BORDER SHADOW      */
+/* --------------------- */
+.b-shadow {
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.07);
+}
+
+/* --------------------- */
+/*          FLEX         */
+/* --------------------- */
+
+.d-flex {
+  display: flex;
+}
+
+.d-justify-center {
+  justify-content: center;
+}
+
+.d-justify-between {
+  justify-content: space-between;
+}
+
+.d-align-center {
+  align-items: center;
+}
+
+.btn-arrow {
+  box-sizing: border-box;
+  height: 1.5rem;
+  width: 1.5rem;
+  border-style: solid;
+  border-color: #b7b7b7;
+  border-width: 0px 1px 1px 0px;
+  transition: 0.15s ease-in-out all;
+  cursor: pointer;
+
+  &.right {
+    transform: rotate(-45deg);
+  }
+
+  &.left {
+    transform: rotate(135deg);
+  }
+
+  &:hover {
+    border-width: 0px 2px 2px 0px;
+  }
+
+  &.disabled {
+    pointer-events: none;
+    border-color: #dadada;
+  }
+}
