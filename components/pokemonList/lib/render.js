@@ -1,4 +1,6 @@
-const buildList = callbackData => {
+import idConvert from '../../common/idConverter.js';
+
+const render = callbackData => {
   if (!callbackData) throw new Error('Callback data was not provied')
 
   const { data, element, limit } = callbackData
@@ -9,7 +11,7 @@ const buildList = callbackData => {
       const image = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${currentIndex}.png`
 
       return `
-        <div data-js-id="pokemon-${currentIndex}" data-js="pokemon" class="h-bold pokemon-list__card m-1 pl-3 pb-2 pr-3 b-radius b-shadow bg-white">
+        <div data-js-id="${currentIndex}" data-js="pokemon" class="h-bold pokemon-list__card m-1 pl-3 pb-2 pr-3 b-radius b-shadow bg-white">
             <div class="d-flex d-justify-center">
                 <img class="pokemon-list__card--img" src="${image}" />
             </div>    
@@ -24,16 +26,4 @@ const buildList = callbackData => {
     .join('')
 }
 
-const idConvert = id => {
-  if (!id) throw new Error('Id to conver was not provied')
-
-  if (id.toString().length === 1) {
-    return `#00${id}`
-  } else if (id.toString().length === 2) {
-    return `#0${id}`
-  } else {
-    return `#${id}`
-  }
-}
-
-export { buildList }
+export { render }

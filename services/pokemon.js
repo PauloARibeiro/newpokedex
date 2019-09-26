@@ -24,4 +24,18 @@ const getOneById = async id => {
     .catch(err => err)
 }
 
+const getSpecie = async id => {
+  return fetch(`${endpoint}/pokemon-species/${id}`)
+    .then(res => res.json())
+    .then(res => res)
+    .catch(err => err)
+}
+
+const getEvolutionChain = async url => {
+  return fetch(url)
+    .then(res => res.json())
+    .then(res => res)
+    .catch(err => err)
+}
+
 export { getOneByName, getAll, getOneById }

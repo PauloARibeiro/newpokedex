@@ -1,6 +1,6 @@
 import Component from '../common/component.js'
 import { getAll } from '../../services/pokemon.js'
-import { buildList } from './lib/render.js'
+import { render } from './lib/render.js'
 import { UPDATE_LIST } from './lib/actions.js'
 
 class PokemonList extends Component {
@@ -20,31 +20,10 @@ class PokemonList extends Component {
     if (!this.next) throw new Error('Next button was not found')
     if (!this.back) throw new Error('Back button was not found')
 
-    this.subscribe(UPDATE_LIST, buildList)
+    this.subscribe(UPDATE_LIST, render)
     this.listPokemon(this.state.limit)
     this.nextButtonEvent()
     this.backButtonEvent()
-  }
-
-  // LIST POKEMON
-  async listPokemon(limit) {
-    if (limit < 0) throw new Error('Limit was not provied or is below 0')
-
-    console.log(limit)
-    return new Promise((resolve, reject) => {
-      getAll(limit)
-        .then(res => {
-          const callbackData = {
-            data: res.results,
-            element: this.list,
-            limit: this.state.limit
-          }
-          this.dispatch({ list: res.results }, UPDATE_LIST, callbackData)
-          this.listCardsEvent()
-          resolve(true)
-        })
-        .catch(err => reject(err))
-    })
   }
 
   // LIST CARD CLICK
@@ -65,6 +44,7 @@ class PokemonList extends Component {
     })
   }
 
+  // BACK BUTTON CLICK
   backButtonEvent() {
     this.back.addEventListener('click', () => {
       this.back.classList.add('disabled')
@@ -75,6 +55,26 @@ class PokemonList extends Component {
           ? this.back.classList.remove('disabled')
           : this.back.classList.add('disabled')
       })
+    })
+  }
+
+  // LIST POKEMON
+  async listPokemon(limit) {
+    if (limit < 0) throw new Error('Limit was not provied or is below 0')
+
+    return new Promise((resolve, reject) => {
+      getAll(limit)
+        .then(res => {
+          const callbackData = {
+            data: res.results,
+            element: this.list,
+            limit: this.state.limit
+          }
+          this.dispatch({ list: res.results }, UPDATE_LIST, callbackData)
+          this.listCardsEvent()
+          resolve(true)
+        })
+        .catch(err => reject(err))
     })
   }
 }
