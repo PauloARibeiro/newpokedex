@@ -20,36 +20,137 @@
         <div data-js="pokemon-list" class="pokemon-list"></div>
         <div data-js="next" class="btn-arrow right ml-1"></div>
       </div> -->
-      <div class="pokemon-detail">
-        <div class="pokemon-detail__title">
-          <h4 class="pokemon-detail__title--name">Pikachu <span>#004</span></h4>
-          <h4 class="pokemon-detail__title--type">Poison</h4>
-          <h4 class="pokemon-detail__title--type">Grass</h4>
-        </div>
-        <div class="pokemon-info">
-          <img src="#" alt="#" class="pokemon-info__image" />
-
+      <section class="pokemon-detail h-regular p-3">
+        <!-- TOP INFO -->
+        <div class="pokemon-detail__title d-flex d-justify-between">
+          <h2 class="pokemon-detail__title--name h-bold">
+            Bulbasaur <span class="color-darker-grey">#004</span>
+          </h2>
           <div class="d-flex">
+            <h5 class="pokemon-detail__title--type color-white p-2 ml-2 b-radius Poison">Poison</h5>
+            <h5 class="pokemon-detail__title--type color-white p-2 ml-2 b-radius Grass">Grass</h5>
+          </div>
+        </div>
+
+        <!-- STATS -->
+        <div class="pokemon-info d-flex">
+          <img
+            src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/001.png"
+            alt="#"
+            class="pokemon-info__image mr-5"
+          />
+
+          <div class="d-flex w-100">
             <div class="pokemon-info__stats">
-              <div class="pokemon-info__stats-stat">HP</div>
-              <div class="pokemon-info__stats-stat">Attack</div>
-              <div class="pokemon-info__stats-stat">Defense</div>
-              <div class="pokemon-info__stats-stat">Speed</div>
-              <div class="pokemon-info__stats-stat">Sp Atk</div>
-              <div class="pokemon-info__stats-stat">Sp Def</div>
+              <div class="pokemon-info__stats--stat mb-1 d-flex d-align-center mr-4">HP</div>
+              <div class="pokemon-info__stats--stat mb-1 d-flex d-align-center mr-4">Attack</div>
+              <div class="pokemon-info__stats--stat mb-1 d-flex d-align-center mr-4">Defense</div>
+              <div class="pokemon-info__stats--stat mb-1 d-flex d-align-center mr-4">Speed</div>
+              <div class="pokemon-info__stats--stat mb-1 d-flex d-align-center mr-4">Sp Atk</div>
+              <div class="pokemon-info__stats--stat mb-1 d-flex d-align-center mr-4">Sp Def</div>
             </div>
 
-            <div class="pokemon-info__bars">
-              <div class="pokemon-info__bars-bar">d</div>
-              <div class="pokemon-info__bars-bar">1</div>
-              <div class="pokemon-info__bars-bar">23</div>
-              <div class="pokemon-info__bars-bar">3</div>
-              <div class="pokemon-info__bars-bar">4</div>
-              <div class="pokemon-info__bars-bar">4</div>
+            <div class="pokemon-info__bars w-100">
+              <div class="pokemon-info__bars--bar bg-darker-grey color-white p-2 mb-1 b-radius">
+                <div
+                  class="pokemon-info__bars--bar-color Grass b-radius-left d-flex d-align-center pl-2"
+                >
+                  30
+                </div>
+              </div>
+              <div class="pokemon-info__bars--bar bg-darker-grey color-white p-2 mb-1 b-radius">
+                <div
+                  class="pokemon-info__bars--bar-color Grass b-radius-left d-flex d-align-center pl-2"
+                >
+                  30
+                </div>
+              </div>
+              <div class="pokemon-info__bars--bar bg-darker-grey color-white p-2 mb-1 b-radius">
+                <div
+                  class="pokemon-info__bars--bar-color Grass b-radius-left d-flex d-align-center pl-2"
+                >
+                  30
+                </div>
+              </div>
+              <div class="pokemon-info__bars--bar bg-darker-grey color-white p-2 mb-1 b-radius">
+                <div
+                  class="pokemon-info__bars--bar-color Grass b-radius-left d-flex d-align-center pl-2"
+                >
+                  30
+                </div>
+              </div>
+              <div class="pokemon-info__bars--bar bg-darker-grey color-white p-2 mb-1 b-radius">
+                <div
+                  class="pokemon-info__bars--bar-color Grass b-radius-left d-flex d-align-center pl-2"
+                >
+                  30
+                </div>
+              </div>
+              <div class="pokemon-info__bars--bar bg-darker-grey color-white p-2 mb-1 b-radius">
+                <div
+                  class="pokemon-info__bars--bar-color Grass b-radius-left d-flex d-align-center pl-2"
+                >
+                  30
+                </div>
+              </div>
             </div>
           </div>
         </div>
-      </div>
+
+        <!-- DESCRIPTION -->
+        <div class="pokemon-description mt-2 mb-3">
+          <span class="pokemon-description__text">
+            For some time after its birth, it grows by gaining nourishment from the seed on its
+            back.
+          </span>
+        </div>
+
+        <!-- BREAK -->
+        <div class="pokemon-break color-white Grass d-flex d-align-center pl-3 h-bold mb-3">
+          <h4>Weakness</h4>
+        </div>
+
+        <!-- WEAKNESS -->
+        <div class="pokemon-weakness">
+          <div>
+            <div class="pokemon-weakness__card d-flex mb-2">
+              <div
+                class="pokemon-weakness__card--block mr-2 Ground d-flex d-align-center p-3 color-white h-bold b-radius"
+              >
+                Groud
+              </div>
+              <div class="pokemon-weakness__card--amount d-flex d-align-center">x2</div>
+            </div>
+          </div>
+
+          <div>
+            <div class="pokemon-weakness__card d-flex mb-2">
+              <div
+                class="pokemon-weakness__card--block mr-2 Poison d-flex d-align-center p-3 color-white h-bold b-radius"
+              >
+                Poison
+              </div>
+              <div class="pokemon-weakness__card--amount d-flex d-align-center">x0.5</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- BREAK -->
+        <div class="pokemon-break color-white Grass d-flex d-align-center pl-3 h-bold mb-3">
+          <h4>Evolution</h4>
+        </div>
+
+        <!-- EVOLUTION -->
+        <div class="pokemon-evolution d-flex d-align-center">
+          <div class="pokemon-evolution__card d-flex d-flex-direction-column d-align-center">
+            <img
+              src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png"
+              alt="name"
+            />
+            <span class="h-bold mt-2">Bulbasaur</span>
+          </div>
+        </div>
+      </section>
     </div>
     <script type="module" src="index.js"></script>
   </body>

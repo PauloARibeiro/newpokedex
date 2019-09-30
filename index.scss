@@ -136,6 +136,10 @@ $spacing: (
   border-radius: 0.6rem;
 }
 
+.b-radius-left {
+  border-radius: 0.6rem 0 0 0.6rem;
+}
+
 /* --------------------- */
 /*    BORDER SHADOW      */
 /* --------------------- */
@@ -163,6 +167,10 @@ $spacing: (
   align-items: center;
 }
 
+.d-flex-direction-column {
+  flex-direction: column;
+}
+
 /* --------------------- */
 /*  BUTTON ARROW         */
 /* --------------------- */
@@ -172,7 +180,7 @@ $spacing: (
   width: 1.5rem;
   border-style: solid;
   border-color: #b7b7b7;
-  border-width: 0px 1px 1px 0px;
+  border-width: 0 1rem 1rem 0;
   transition: 0.15s ease-in-out all;
   cursor: pointer;
 
@@ -185,11 +193,150 @@ $spacing: (
   }
 
   &:hover {
-    border-width: 0px 2px 2px 0px;
+    border-width: 0 2px 2px 0;
   }
 
   &.disabled {
     pointer-events: none;
     border-color: #dadada;
+  }
+}
+
+.Normal {
+  background: #a8a77a;
+}
+.Fire {
+  background: #ee8130;
+}
+.Water {
+  background: #6390f0;
+}
+.Electric {
+  background: #f7d02c;
+}
+.Grass {
+  background: #7ac74c;
+}
+.Ice {
+  background: #96d9d6;
+}
+.Fighting {
+  background: #c22e28;
+}
+.Poison {
+  background: #a33ea1;
+}
+.Ground {
+  background: #e2bf65;
+}
+.Flying {
+  background: #a98ff3;
+}
+.Psychic {
+  background: #f95587;
+}
+.Bug {
+  background: #a6b91a;
+}
+.Rock {
+  background: #b6a136;
+}
+.Ghost {
+  background: #735797;
+}
+.Dragon {
+  background: #6f35fc;
+}
+.Dark {
+  background: #705746;
+}
+.Steel {
+  background: #b7b7ce;
+}
+.Fairy {
+  background: #d685ad;
+}
+
+.pokemon-detail {
+  &__title {
+    &--name {
+      span {
+        font-size: 0.8rem;
+      }
+    }
+  }
+}
+
+.pokemon-info {
+  &__image {
+    width: 40%;
+  }
+
+  &__stats {
+    &--stat {
+      height: 30px;
+    }
+  }
+
+  &__bars {
+    &--bar {
+      position: relative;
+      font-size: 0.8rem;
+      height: 1.9rem;
+    }
+
+    span {
+      z-index: 2;
+    }
+
+    &--bar-color {
+      top: 0;
+      position: absolute;
+      height: 30px;
+      width: 50%;
+      left: 0;
+    }
+  }
+}
+
+.pokemon-description {
+  &__text {
+    font-size: 0.9rem;
+    line-height: 1.1;
+  }
+}
+
+.pokemon-break {
+  width: 105.7%;
+  height: 3rem;
+  margin-left: -16px;
+  margin-right: -20px;
+}
+
+.pokemon-weakness {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  grid-gap: 1rem;
+  width: 100%;
+
+  &__card {
+    &--block {
+      flex: 1 1 90%;
+    }
+
+    &--amount {
+      font-size: 1rem;
+    }
+  }
+}
+
+.pokemon-evolution {
+  &__card {
+    flex: 1 1 auto;
+
+    img {
+      border: 2px solid #7ac74c;
+      border-radius: 50%;
+    }
   }
 }

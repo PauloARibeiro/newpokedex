@@ -34,8 +34,35 @@ const getSpecie = async id => {
 const getEvolutionChain = async url => {
   return fetch(url)
     .then(res => res.json())
-    .then(res => res)
+    .then(res => res.chain)
     .catch(err => err)
 }
 
-export { getOneByName, getAll, getOneById }
+const getAllInfo = async id => {
+  const data = await Promise.all([getOneById(id), getSpecie(id)])
+    .then(res => res)
+    .catch(err => err)
+
+  let evolutionChain = await getEvolutionChain(data[1].evolution_chain.url)
+  let chain = []
+
+  while (evolutionChain && evolutionChain.hasOwnProperty('evolves_to')) {
+    const { species } = evolutionChain
+
+    chain.push({
+      name: species.name,
+      id: species.url.split('/')[6]
+    })
+
+    evolutionChain = evolutionChain['evolves_to'][0]
+  }
+
+  console.log({ basic: data[0], specie: data[1], chain })
+  return {
+    basic: data[0],
+    specie: data[1],
+    chain
+  }
+}
+
+export { getOneByName, getAll, getOneById, getAllInfo }
