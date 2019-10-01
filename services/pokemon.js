@@ -57,7 +57,6 @@ const getAllInfo = async id => {
     evolutionChain = evolutionChain['evolves_to'][0]
   }
 
-  console.log({ basic: data[0], specie: data[1], chain })
   return {
     basic: data[0],
     specie: data[1],

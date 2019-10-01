@@ -11,23 +11,28 @@ class PokemonDetail extends Component {
       list: []
     }
 
+    this.elements = {
+      details: document.querySelector('[data-js=pokemon-detail]'),
+      info: document.querySelector('[data-js=pokemon-info]'),
+      description: document.querySelector('[data-js=pokemon-description]'),
+      weakness: document.querySelector('[data-js=pokemon-weakness]')
+    }
+
     this.subscribe(POKEMON_DETAILS, render)
     this.showDetails()
   }
 
   showDetails() {
-    // getOneById(this.props)
-    //   .then(res => {
-    //     const callbackData = {
-    //       data: res.results,
-    //       element: this.list
-    //     }
-    //     this.dispatch({ list: res.results }, UPDATE_LIST, callbackData)
-    //     this.listCardsEvent()
-    //     resolve(true)
-    //   })
-    //   .catch(err => reject(err))
-    getAllInfo(1)
+    getAllInfo(this.props)
+      .then(res => {
+        const callbackData = {
+          data: res,
+          elements: this.elements
+        }
+        this.dispatch({ list: res.results }, POKEMON_DETAILS, callbackData)
+        resolve(true)
+      })
+      .catch(err => err)
   }
 }
 
