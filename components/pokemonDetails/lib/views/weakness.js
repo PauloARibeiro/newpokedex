@@ -1,36 +1,13 @@
-export default (id, stats) => {
+export default weakness => {
+  console.log(weakness)
   return `
-    <img
-        src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/${idConvert(id)}.png"
-        alt="#"
-        class="pokemon-info__image mr-5"
-    />
-
-    <div class="d-flex w-100">
-        <div class="pokemon-info__stats">
-            <div class="pokemon-info__stats--stat mb-1 d-flex d-align-center mr-4">HP</div>
-            <div class="pokemon-info__stats--stat mb-1 d-flex d-align-center mr-4">Attack</div>
-            <div class="pokemon-info__stats--stat mb-1 d-flex d-align-center mr-4">Defense</div>
-            <div class="pokemon-info__stats--stat mb-1 d-flex d-align-center mr-4">Speed</div>
-            <div class="pokemon-info__stats--stat mb-1 d-flex d-align-center mr-4">Sp Atk</div>
-            <div class="pokemon-info__stats--stat mb-1 d-flex d-align-center mr-4">Sp Def</div>
-        </div>
-
-        <div class="pokemon-info__bars w-100">
-            ${stats
-              .map(stat => {
-                return `
-                    <div class="pokemon-info__bars--bar bg-darker-grey color-white p-2 mb-1 b-radius">
-                        <div style="width: ${stat.base_stat}%" class="pokemon-info__bars--bar-color Grass b-radius-left d-flex d-align-center pl-2">
-                            ${stat.base_stat}
-                        </div>
-                    </div>`
-              })
-              .join('')}
-
+    <div>
+        <div class="pokemon-weakness__card d-flex mb-2">
+            <div class="pokemon-weakness__card--block mr-2 Ground d-flex d-align-center p-3 color-white h-bold b-radius" >
+                Groud
+            </div>
+            <div class="pokemon-weakness__card--amount d-flex d-align-center">x2</div>
         </div>
     </div>
-
-    
     `
 }
