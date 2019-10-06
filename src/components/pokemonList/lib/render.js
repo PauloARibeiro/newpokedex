@@ -1,11 +1,15 @@
-import idConvert from '../../common/idConverter.js';
+import idConvert from '../../common/idConverter.js'
+
+const list = document.querySelector('[data-js=pokemon-list]')
+
+if (!list) throw new Error('List was not found')
 
 const render = callbackData => {
   if (!callbackData) throw new Error('Callback data was not provied')
 
-  const { data, element, limit } = callbackData
+  const { data, limit } = callbackData
 
-  element.innerHTML = data
+  list.innerHTML = data
     .map((item, index) => {
       const currentIndex = index + 1 + limit
       const image = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${currentIndex}.png`

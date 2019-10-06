@@ -2,24 +2,28 @@ import Component from '../common/component.js'
 import { getAllInfo } from '../../services/pokemon.js'
 import { render } from './lib/render.js'
 import { POKEMON_DETAILS } from './lib/actions.js'
+import toggleSections from '../common/toggleSections.js'
 
 class PokemonDetail extends Component {
   constructor(id) {
     super(id)
 
     this.state = {
-      list: []
+      list: [],
+      toggleSections: true
     }
 
-    this.elements = {
-      details: document.querySelector('[data-js=pokemon-detail]'),
-      info: document.querySelector('[data-js=pokemon-info]'),
-      description: document.querySelector('[data-js=pokemon-description]'),
-      weakness: document.querySelector('[data-js=pokemon-weakness]')
-    }
+    this.backToListButton = document.querySelector('[data-js=back-to-list]')
+
+    if (!this.backToListButton) throw new Error('Back to list button was not found')
 
     this.subscribe(POKEMON_DETAILS, render)
+    this.subscribe(POKEMON_DETAILS, toggleSections)
     this.showDetails()
+  }
+
+  backToList() {
+    this.backToListButton.addEventListener('click', () => toggleSections({ toggleSections: false }))
   }
 
   showDetails() {
@@ -27,13 +31,14 @@ class PokemonDetail extends Component {
       .then(res => {
         const callbackData = {
           data: res,
-          elements: this.elements
+          toggleSections: true
         }
         this.dispatch({ list: res.results }, POKEMON_DETAILS, callbackData)
-        resolve(true)
+        this.backToList()
       })
       .catch(err => err)
   }
 }
 
-export default new PokemonDetail(1)
+export default PokemonDetail
+// export default new PokemonDetail(5)

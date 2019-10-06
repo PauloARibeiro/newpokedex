@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="./css/index.css" />
+    <link rel="stylesheet" href="./css/normalize.css" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Open+Sans:400,600|Proza+Libre:400,600&display=swap"
+      rel="stylesheet"
+    />
+    <title>Document</title>
+  </head>
+  <body class="color-black">
+    <div data-js="container" class="container b-radius b-shadow">
+      <!-- ------------- -->
+      <!-- LIST SECTION -->
+      <!-- ------------- -->
+      <section data-js="pokemon-list-container" class="d-flex d-justify-between d-align-center">
+        <div data-js="back" class="btn-arrow left disabled mr-1">
+          <img src="./img/arrow.svg" alt="" />
+        </div>
+
+        <div data-js="pokemon-list" class="pokemon-list p-2"></div>
+
+        <div data-js="next" class="btn-arrow right ml-1">
+          <img src="./img/arrow.svg" alt="" />
+        </div>
+      </section>
+
+      <!-- ------------- -->
+      <!-- DETAIL SECTION -->
+      <!-- ------------- -->
+      <section data-js="pokemon-detail-container" class="pokemon-detail h-regular p-3 hide">
+        <div data-js="back-to-list" class="btn-arrow back-to-list left ml-0 hide">
+          <img src="./img/arrow.svg" alt="" />
+        </div>
+        <!-- TOP INFO -->
+        <div data-js="pokemon-detail" class="pokemon-detail__title d-flex d-justify-between"></div>
+
+        <!-- STATS -->
+        <div data-js="pokemon-info" class="pokemon-info d-flex"></div>
+
+        <!-- DESCRIPTION -->
+        <div data-js="pokemon-description" class="pokemon-description mt-2 mb-3"></div>
+
+        <!-- BREAK -->
+        <div
+          data-js="break"
+          class="pokemon-break color-white d-flex d-align-center pl-3 h-bold mb-3"
+        >
+          <h4>Weakness</h4>
+        </div>
+
+        <!-- WEAKNESS -->
+        <div data-js="pokemon-weakness" class="pokemon-weakness"></div>
+
+        <!-- BREAK -->
+        <div
+          data-js="break"
+          class="pokemon-break color-white d-flex d-align-center pl-3 h-bold mb-3 mt-2"
+        >
+          <h4>Evolution</h4>
+        </div>
+
+        <!-- EVOLUTION -->
+        <div data-js="pokemon-evolution" class="pokemon-evolution d-flex d-align-center"></div>
+      </section>
+    </div>
+    <script type="module" src="index.js"></script>
+  </body>
+</html>

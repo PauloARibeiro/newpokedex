@@ -2,6 +2,7 @@ import Component from '../common/component.js'
 import { getAll } from '../../services/pokemon.js'
 import { render } from './lib/render.js'
 import { UPDATE_LIST } from './lib/actions.js'
+import PokemonDetail from '../pokemonDetails/index.js'
 
 class PokemonList extends Component {
   constructor() {
@@ -12,11 +13,9 @@ class PokemonList extends Component {
       list: []
     }
 
-    this.list = document.querySelector('[data-js=pokemon-list]')
     this.next = document.querySelector('[data-js=next]')
     this.back = document.querySelector('[data-js=back]')
 
-    if (!this.list) throw new Error('List was not found')
     if (!this.next) throw new Error('Next button was not found')
     if (!this.back) throw new Error('Back button was not found')
 
@@ -29,7 +28,9 @@ class PokemonList extends Component {
   // LIST CARD CLICK
   listCardsEvent() {
     document.querySelectorAll('[data-js=pokemon]').forEach(card => {
-      card.addEventListener('click', () => console.log(true))
+      card.addEventListener('click', () => {
+        new PokemonDetail(card.getAttribute('data-js-id'))
+      })
     })
   }
 
@@ -67,7 +68,6 @@ class PokemonList extends Component {
         .then(res => {
           const callbackData = {
             data: res.results,
-            element: this.list,
             limit: this.state.limit
           }
           this.dispatch({ list: res.results }, UPDATE_LIST, callbackData)

@@ -1,6 +1,6 @@
 import idConvert from '../../../common/idConverter.js'
 
-export default (id, stats) => {
+export default (id, stats, primaryType) => {
   stats = stats.reverse()
 
   return `
@@ -25,7 +25,8 @@ export default (id, stats) => {
               .map(stat => {
                 return `
                     <div class="pokemon-info__bars--bar bg-darker-grey color-white p-2 mb-1 b-radius">
-                        <div style="width: ${stat.base_stat}%" class="pokemon-info__bars--bar-color Grass b-radius-left d-flex d-align-center pl-2">
+                        <div style="width: ${stat.base_stat /
+                          2}%" class="pokemon-info__bars--bar-color ${primaryType} b-radius-left d-flex d-align-center pl-2">
                             ${stat.base_stat}
                         </div>
                     </div>`

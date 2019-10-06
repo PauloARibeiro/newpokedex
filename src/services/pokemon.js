@@ -10,7 +10,7 @@ const getOneByName = async text => {
 
 // GET ALL
 const getAll = async (limit = 0) => {
-  return fetch(`${endpoint}/pokemon?limit=21&offset=${limit}`)
+  return fetch(`${endpoint}/pokemon?limit=18&offset=${limit}`)
     .then(res => res.json())
     .then(res => res)
     .catch(err => err)
@@ -42,31 +42,37 @@ const getEvolutionChain = async url => {
 
 // GET DAMAGE VALUES
 const getDamageValues = async types => {
-  const data = []
-
-  for await (const type of types) {
-    const { name } = type.type
-    fetch(`${endpoint}/type/${name}`)
-      .then(res => res.json())
-      .then(res => data.push(res['damage_relations']))
-      .catch(err => err)
-  }
-
-  return data
+  return Promise.all(
+    types.map(type => fetch(`${endpoint}/type/${type.type.name}`).then(res => res.json()))
+  )
+    .then(res => res)
+    .catch(err => err)
 }
 
 // ADD AND REMOVE DAMAGE VALUES
-const mutateDamageValuesByPokemon = damageValues => {
-  const data = {}
+const mutateDamageValuesByPokemon = (damageValues, types) => {
+  const data = {
+    half: [],
+    double: []
+  }
 
-  damageValues.forEach(value => {
-    value.half_damage_from.forEach(element => {
-      data[element.name] = '0.5x'
+  damageValues.map(value => {
+    value.damage_relations.half_damage_from.map(element => {
+      data.half[element.name] = '0.5x'
     })
 
-    value.double_damage_from.forEach(element => {
-      data[element.name] = '2x'
+    value.damage_relations.double_damage_from.map(element => {
+      data.double[element.name] = '2x'
     })
+  })
+
+  types.map(type => {
+    delete data.half[type.type.name]
+    delete data.double[type.type.name]
+  })
+
+  Object.keys(data.double).map(item => {
+    delete data.half[item]
   })
 
   return data
@@ -78,7 +84,7 @@ const getAllInfo = async id => {
     .then(res => res)
     .catch(err => err)
   const damageValues = await getDamageValues(data[0].types)
-  const weakness = await mutateDamageValuesByPokemon(damageValues)
+  const weakness = await mutateDamageValuesByPokemon(damageValues, data[0].types)
   let evolutionChain = await getEvolutionChain(data[1].evolution_chain.url)
   let chain = []
 

@@ -4,7 +4,7 @@
 }
 
 body {
-  background: url("https://i.imgur.com/2gfwG.png");
+  background: url("../background.png");
   padding: 0;
   margin: 0;
 }
@@ -15,6 +15,7 @@ body {
 .container {
   max-width: 600px;
   width: 100%;
+  height: 82.7vh;
   margin: 0 auto;
   position: absolute;
   top: 50%;
@@ -34,6 +35,10 @@ body {
 
 .hv-100 {
   height: 100vh;
+}
+
+.hide {
+  display: none !important;
 }
 
 /* --------------------- */
@@ -416,105 +421,195 @@ body {
 .btn-arrow {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
-  height: 1.5rem;
-  width: 1.5rem;
-  border-style: solid;
-  border-color: #b7b7b7;
-  border-width: 0 1rem 1rem 0;
-  -webkit-transition: 0.15s ease-in-out all;
-  transition: 0.15s ease-in-out all;
   cursor: pointer;
+  padding: 5px 10px;
+  position: absolute;
+}
+
+.btn-arrow.back-to-list {
+  padding: 0;
+}
+
+.btn-arrow.back-to-list img {
+  height: 1.1rem;
+  width: 1.1rem;
+}
+
+.btn-arrow.back-to-list.left {
+  left: 13px;
+}
+
+.btn-arrow img {
+  height: 2.5rem;
+  width: 2.5rem;
 }
 
 .btn-arrow.right {
-  -webkit-transform: rotate(-45deg);
-          transform: rotate(-45deg);
+  right: -4em;
 }
 
 .btn-arrow.left {
-  -webkit-transform: rotate(135deg);
-          transform: rotate(135deg);
-}
-
-.btn-arrow:hover {
-  border-width: 0 2px 2px 0;
+  -webkit-transform: rotate(179deg);
+          transform: rotate(179deg);
+  left: -4em;
 }
 
 .btn-arrow.disabled {
   pointer-events: none;
   border-color: #dadada;
+  opacity: 0.2;
 }
 
 .Normal {
   background: #a8a77a;
 }
 
+.border-Normal {
+  border: 2px solid #a8a77a;
+}
+
 .Fire {
   background: #ee8130;
+}
+
+.border-Fire {
+  border: 2px solid #ee8130;
 }
 
 .Water {
   background: #6390f0;
 }
 
+.border-Water {
+  border: 2px solid #6390f0;
+}
+
 .Electric {
   background: #f7d02c;
+}
+
+.border-Electric {
+  border: 2px solid #f7d02c;
 }
 
 .Grass {
   background: #7ac74c;
 }
 
+.border-Grass {
+  border: 2px solid #7ac74c;
+}
+
 .Ice {
   background: #96d9d6;
+}
+
+.border-Ice {
+  border: 2px solid #96d9d6;
 }
 
 .Fighting {
   background: #c22e28;
 }
 
+.border-Fighting {
+  border: 2px solid #c22e28;
+}
+
 .Poison {
   background: #a33ea1;
+}
+
+.border-Poison {
+  border: 2px solid #a33ea1;
 }
 
 .Ground {
   background: #e2bf65;
 }
 
+.border-Ground {
+  border: 2px solid #e2bf65;
+}
+
 .Flying {
   background: #a98ff3;
+}
+
+.border-Flying {
+  border: 2px solid #a98ff3;
 }
 
 .Psychic {
   background: #f95587;
 }
 
+.border-Psychic {
+  border: 2px solid #f95587;
+}
+
 .Bug {
   background: #a6b91a;
+}
+
+.border-Bug {
+  border: 2px solid #a6b91a;
 }
 
 .Rock {
   background: #b6a136;
 }
 
+.border-Rock {
+  border: 2px solid #b6a136;
+}
+
 .Ghost {
   background: #735797;
+}
+
+.border-Ghost {
+  border: 2px solid #735797;
 }
 
 .Dragon {
   background: #6f35fc;
 }
 
+.border-Dragon {
+  border: 2px solid #6f35fc;
+}
+
 .Dark {
   background: #705746;
+}
+
+.border-Dark {
+  border: 2px solid #705746;
 }
 
 .Steel {
   background: #b7b7ce;
 }
 
+.border-Steel {
+  border: 2px solid #b7b7ce;
+}
+
 .Fairy {
   background: #d685ad;
+}
+
+.border-Fairy {
+  border: 2px solid #d685ad;
+}
+
+.pokemon-detail {
+  position: relative;
+}
+
+.pokemon-detail__title {
+  margin-top: 1rem;
 }
 
 .pokemon-detail__title--name span {
@@ -585,7 +680,41 @@ body {
 }
 
 .pokemon-evolution__card img {
-  border: 2px solid #7ac74c;
   border-radius: 50%;
+}
+
+.pokemon-list {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (minmax(150px, 1fr))[auto-fill];
+      grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  width: 100%;
+}
+
+.pokemon-list__card {
+  position: relative;
+  cursor: pointer;
+}
+
+.pokemon-list__card--info {
+  -webkit-transform: translateY(-0.33rem);
+          transform: translateY(-0.33rem);
+}
+
+.pokemon-list__card--img {
+  width: 90px;
+  height: 90px;
+  display: block;
+  -webkit-transition: 0.2s ease-in-out all;
+  transition: 0.2s ease-in-out all;
+}
+
+.pokemon-list__card--id {
+  font-size: 0.5rem;
+}
+
+.pokemon-list__card:hover .pokemon-list__card--img {
+  -webkit-transform: scale(1.03);
+          transform: scale(1.03);
 }
 /*# sourceMappingURL=index.css.map */
