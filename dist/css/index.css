@@ -1,10 +1,10 @@
 * {
   -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 body {
-  background: url("../background.png");
+  background: url('../img/background.png');
   padding: 0;
   margin: 0;
 }
@@ -15,13 +15,13 @@ body {
 .container {
   max-width: 600px;
   width: 100%;
-  height: 82.7vh;
+  height: 78.7vh;
   margin: 0 auto;
   position: absolute;
   top: 50%;
   left: 50%;
   -webkit-transform: translate(-50%, -50%);
-          transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
   background: #f9f9f9;
 }
 
@@ -97,22 +97,22 @@ body {
 /* --------------------- */
 .h-regular {
   font-weight: 400;
-  font-family: "Open Sans", sans-serif;
+  font-family: 'Open Sans', sans-serif;
 }
 
 .t-regular {
   font-weight: 400;
-  font-family: "Proza Libre", sans-serif;
+  font-family: 'Proza Libre', sans-serif;
 }
 
 .h-bold {
   font-weight: 600;
-  font-family: "Open Sans", sans-serif;
+  font-family: 'Open Sans', sans-serif;
 }
 
 .t-bold {
   font-weight: 600;
-  font-family: "Proza Libre", sans-serif;
+  font-family: 'Proza Libre', sans-serif;
 }
 
 .t-capitalize {
@@ -378,7 +378,7 @@ body {
 /* --------------------- */
 .b-shadow {
   -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.07);
-          box-shadow: 0 1px 2px rgba(0, 0, 0, 0.07);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.07);
 }
 
 /* --------------------- */
@@ -392,27 +392,27 @@ body {
 
 .d-justify-center {
   -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
 }
 
 .d-justify-between {
   -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
 }
 
 .d-align-center {
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
 }
 
 .d-flex-direction-column {
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
 }
 
 /* --------------------- */
@@ -420,7 +420,7 @@ body {
 /* --------------------- */
 .btn-arrow {
   -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
   cursor: pointer;
   padding: 5px 10px;
   position: absolute;
@@ -450,7 +450,7 @@ body {
 
 .btn-arrow.left {
   -webkit-transform: rotate(179deg);
-          transform: rotate(179deg);
+  transform: rotate(179deg);
   left: -4em;
 }
 
@@ -657,16 +657,16 @@ body {
 .pokemon-weakness {
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: (minmax(200px, 1fr))[auto-fill];
-      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  -ms-grid-columns: (minmax(200px, 1fr)) [auto-fill];
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
   grid-gap: 1rem;
   width: 100%;
 }
 
 .pokemon-weakness__card--block {
   -webkit-box-flex: 1;
-      -ms-flex: 1 1 90%;
-          flex: 1 1 90%;
+  -ms-flex: 1 1 90%;
+  flex: 1 1 90%;
 }
 
 .pokemon-weakness__card--amount {
@@ -675,8 +675,8 @@ body {
 
 .pokemon-evolution__card {
   -webkit-box-flex: 1;
-      -ms-flex: 1 1 auto;
-          flex: 1 1 auto;
+  -ms-flex: 1 1 auto;
+  flex: 1 1 auto;
 }
 
 .pokemon-evolution__card img {
@@ -686,8 +686,8 @@ body {
 .pokemon-list {
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: (minmax(150px, 1fr))[auto-fill];
-      grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  -ms-grid-columns: (minmax(150px, 1fr)) [auto-fill];
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
   width: 100%;
 }
 
@@ -698,7 +698,7 @@ body {
 
 .pokemon-list__card--info {
   -webkit-transform: translateY(-0.33rem);
-          transform: translateY(-0.33rem);
+  transform: translateY(-0.33rem);
 }
 
 .pokemon-list__card--img {
@@ -715,6 +715,6 @@ body {
 
 .pokemon-list__card:hover .pokemon-list__card--img {
   -webkit-transform: scale(1.03);
-          transform: scale(1.03);
+  transform: scale(1.03);
 }
 /*# sourceMappingURL=index.css.map */
